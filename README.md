@@ -14,6 +14,24 @@ ansible-playbook recipe.yml -i hosts.example -u root --ask-su-pass
 
 The desired behavior can be refined via variables.
 
+```yaml
+user:
+  # The user's id
+  id: 1000
+  # The user's name
+  name: user
+  # The user's encrypted password
+  password: pass
+  # The user's shell to login
+  shell: /bin/bash
+
+group:
+  # The group id
+  id: 1000
+  # The user's primary group
+  name: admin
+```
+
 * Create a new admin user and add the your identity key to `authorized_keys` on
   host:
 
