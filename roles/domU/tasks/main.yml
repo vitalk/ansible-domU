@@ -1,0 +1,18 @@
+---
+- name: Create an admin group
+  group: name={{ group.name }} gid={{ group.id }} state=present
+
+- name: Create a new user
+  user: name={{ user.name }} password={{ user.password }} shell={{ user.shell }}
+    group={{ group.name }} uid={{ user.id }}
+
+- name: Add identity key to authorized_keys on host
+  authorized_key: user={{ user.name }}
+    key="{{ lookup('file', identity_key) }}"
+  when: identity_key is not undefined
+
+- name: Allow members of the admin group gain root permission
+  lineinfile: dest=/etc/sudoers
+    regexp='^%{{ group.name }} ALL\='
+    line='%{{ group.name }} ALL=(ALL) NOPASSWD:ALL'
+    validate='visudo -cf %s'

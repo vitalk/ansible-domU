@@ -1,0 +1,10 @@
+---
+user:
+  id: 1000
+  name: user
+  password: pass
+  shell: /bin/bash
+
+group:
+  id: 1000
+  name: admin

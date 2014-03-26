@@ -1,0 +1,10 @@
+---
+- hosts: all
+  roles:
+    - role: domU
+      identity_key: "/Users/vital/.ssh/vital.pub"
+      user:
+        name: vital
+        password: pass
+        shell: /bin/bash
+        id: 1000
