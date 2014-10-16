@@ -24,6 +24,8 @@ user:
   password: pass
   # The user's shell to login
   shell: /bin/bash
+  # Path to identity key associated with user
+  identity_key: "/path/to/identity.pub"
 
 group:
   # The group id
@@ -39,12 +41,12 @@ group:
   - hosts: mybox
     roles:
       - role: domU
-        identity_key: "/path/to/identity.pub"
         user:
           name: vital
           password: letmein
           shell: /bin/bash
           id: 1000
+          identity_key: "/path/to/identity.pub"
   ```
 
 * Create an admin user that unable to login into host (for running certain cron

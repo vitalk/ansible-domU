@@ -8,8 +8,8 @@
 
 - name: Add identity key to authorized_keys on host
   authorized_key: user={{ user.name }}
-    key="{{ lookup('file', identity_key) }}"
-  when: identity_key is not undefined
+    key="{{ lookup('file', user.identity_key) }}"
+  when: user.identity_key is defined
 
 - name: Allow members of the admin group gain root permission
   lineinfile: dest=/etc/sudoers
