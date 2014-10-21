@@ -26,6 +26,9 @@ user:
   shell: /bin/bash
   # Path to identity key associated with user
   identity_key: "/path/to/identity.pub"
+  # Whether to generate a SSH key for the user. This will not overwrite an
+  # existing SSH key.
+  generate_ssh_key: no
 
 group:
   # The group id
@@ -46,6 +49,7 @@ group:
           password: letmein
           shell: /bin/bash
           id: 1000
+          generate_ssh_key: yes
           identity_key: "/path/to/identity.pub"
   ```
 

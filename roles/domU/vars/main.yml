@@ -3,6 +3,7 @@ user:
   id: 1000
   name: user
   password: pass
+  generate_ssh_key: no
   shell: /bin/bash
 
 group:

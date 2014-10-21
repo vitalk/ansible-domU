@@ -4,7 +4,7 @@
 
 - name: Create a new user
   user: name={{ user.name }} password={{ user.password }} shell={{ user.shell }}
-    group={{ group.name }} uid={{ user.id }}
+    group={{ group.name }} uid={{ user.id }} generate_ssh_key={{ user.generate_ssh_key }}
 
 - name: Add identity key to authorized_keys on host
   authorized_key: user={{ user.name }}
